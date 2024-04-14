@@ -13,7 +13,7 @@ public class ConsumerServiceImpl implements ConsumerService {
      * 方式-：另外抽出一个 remote 远程接口暴露出去
      * todo： 注意url中的端口为 dubbo通信端口
      */
-    @Reference(url = "127.0.0.1:20882",check = false)
+    @Reference(url = "127.0.0.1:30882",check = false)
     private ProducterRemote producterRemote;
 
 
@@ -21,7 +21,7 @@ public class ConsumerServiceImpl implements ConsumerService {
      * 方式二：直接将业务service的接口暴露出去
      * todo： 注意url中的端口为 dubbo通信端口
      */
-    @Reference(url = "127.0.0.1:20882",check = false)
+    @Reference(url = "127.0.0.1:40882",check = false)
     private ProducterService2 producterService2;
 
     @Override
@@ -29,5 +29,10 @@ public class ConsumerServiceImpl implements ConsumerService {
         String res1 = producterRemote.product();
         String res2 = producterService2.product();
         return "消费端： " + res1 + " && " + res2;
+    }
+
+    @Override
+    public String consumerResult(String product) {
+        return "消费端消费：" + product + " 已经结束";
     }
 }

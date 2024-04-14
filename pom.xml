@@ -12,6 +12,7 @@
         <module>dubbo-producter</module>
         <module>dubbo-consumer</module>
         <module>dubbo-api</module>
+        <module>dubbo-producter2</module>
     </modules>
 
     <properties>
